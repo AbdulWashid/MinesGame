@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- boostrap js script -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- boostrap style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- my css -->
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #16325B;
+        }
+        #body{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        #mobNoForm{
+            margin: auto;
+            border: 1px solid black;
+            width: 40%;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #227B94;
+        }
+        button{
+            background-color: #FFDC7F;
+            color: black;
+        }
+        .modelForm{
+            margin: 20px;
+        }
+        .eye{
+            float: right;
+            margin-right: 5px;
+            position: relative;
+            bottom: 25px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .newuser{
+            color: #303030;
+        }
+    </style>
+</head>
+<body>
+    <div id="body">
+        <form id="mobNoForm">
+            <fieldset>
+                <legend>User Login</legend>
+                <div class="form-group">
+                    <label for="exampleInputNumber">Mobile No.</label>
+                    <input type="number" class="form-control" id="exampleInputNumber"  placeholder="Enter Mobile Number">
+                </div>
+                <button type="button" class="btn" id="monNobtn">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+    <!-- New User module  -->
+    <div id="NewUsermodel" data-backdrop="static" data-keyboard="false" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="modelForm">
+                    <span class="newuser">New user please set password and name</span>
+                    <div class="form-group">
+                        <label for="name">Enter User Name</label>
+                        <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter user Name" autocomplete="on">
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserPassword1">Password</label>
+                        <input type="password" class="form-control" id="newUserPassword1" placeholder="Enter Password">
+                        <span id="newUserPassword1eye" class="eye">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="newUserPassword1eyeSVG" d="M2 2L22 22" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="newUserPassword1eyeSVG" d="M6.71277 6.7226C3.66479 8.79527 2 12 2 12C2 12 5.63636 19 12 19C14.0503 19 15.8174 18.2734 17.2711 17.2884M11 5.05822C11.3254 5.02013 11.6588 5 12 5C18.3636 5 22 12 22 12C22 12 21.3082 13.3317 20 14.8335" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="newUserPassword1eyeSVG" d="M14 14.2362C13.4692 14.7112 12.7684 15.0001 12 15.0001C10.3431 15.0001 9 13.657 9 12.0001C9 11.1764 9.33193 10.4303 9.86932 9.88818" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserPassword2">Conform Password</label>
+                        <input type="password" class="form-control" id="newUserPassword2" placeholder="Conform Password">
+                        <span id="newUserPassword2eye" class="eye">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="newUserPassword2eyeSVG" d="M2 2L22 22" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="newUserPassword2eyeSVG" d="M6.71277 6.7226C3.66479 8.79527 2 12 2 12C2 12 5.63636 19 12 19C14.0503 19 15.8174 18.2734 17.2711 17.2884M11 5.05822C11.3254 5.02013 11.6588 5 12 5C18.3636 5 22 12 22 12C22 12 21.3082 13.3317 20 14.8335" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="newUserPassword2eyeSVG" d="M14 14.2362C13.4692 14.7112 12.7684 15.0001 12 15.0001C10.3431 15.0001 9 13.657 9 12.0001C9 11.1764 9.33193 10.4303 9.86932 9.88818" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <button type="button" id="newFormbtn" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Exist User Module -->
+    <div id="ExistUsermodel" data-backdrop="static" data-keyboard="false" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="modelForm">
+                    <span class="newuser">please Enter password</span>
+                    <div class="form-group">
+                        <label for="existuserPassword">Password</label>
+                        <input type="password" class="form-control" id="existuserPassword" placeholder="Enter Password">
+                        <span id="existuserPasswordeye" class="eye">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path class="existuserPasswordeyeSVG" d="M2 2L22 22" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="existuserPasswordeyeSVG" d="M6.71277 6.7226C3.66479 8.79527 2 12 2 12C2 12 5.63636 19 12 19C14.0503 19 15.8174 18.2734 17.2711 17.2884M11 5.05822C11.3254 5.02013 11.6588 5 12 5C18.3636 5 22 12 22 12C22 12 21.3082 13.3317 20 14.8335" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="existuserPasswordeyeSVG" d="M14 14.2362C13.4692 14.7112 12.7684 15.0001 12 15.0001C10.3431 15.0001 9 13.657 9 12.0001C9 11.1764 9.33193 10.4303 9.86932 9.88818" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <button type="button" id="existFormbtn" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        if(localStorage.getItem("player")==null){
+            var players =[];
+            players = JSON.stringify(players);
+            localStorage.setItem("player",players)
+        }
+        // mobile number click button start
+        var players;
+        var currentPlayer;
+        var playerIsExist;
+        var mobile;
+        var monNobtn = document.getElementById("monNobtn");
+        monNobtn.addEventListener("click",function(){
+            playerIsExist = false;
+            players = localStorage.getItem("player");
+            players = JSON.parse(players);
+            mobile = document.getElementById("exampleInputNumber").value;
+            mobile = parseInt(mobile);
+            mobile = String(mobile);
+            if(mobile.length == 10){
+                for (const index in players) {
+                    const element = players[index];
+                    if(mobile==element.number){
+                        currentPlayer = element;
+                        $('#ExistUsermodel').modal('show');
+                        playerIsExist = true;
+                    }
+                }
+                if(playerIsExist==false){
+                    $('#NewUsermodel').modal('show');
+                    currentPlayer = {
+                        number:mobile,
+                        score:0
+                    };
+                    players.push(currentPlayer);
+                }
+            }
+            else{
+                alert("Please Enter Valid Mobile Number!");
+            }
+        });
+        // new user mudel
+        var newFormbtn = document.getElementById("newFormbtn");
+        newFormbtn.addEventListener("click",function(){
+            var name = document.getElementById("name").value;
+            var setpassword = document.getElementById("newUserPassword1").value;
+            var confPass = document.getElementById("newUserPassword2").value;
+            if(name != "" && setpassword != "" && confPass != ""){
+                console.log(setpassword.toString().length);
+                if(setpassword.toString().length>5){
+                    if(setpassword==confPass){
+                        currentPlayer.name = name;
+                        currentPlayer.password = setpassword;
+                        for (const index in players) {
+                            if(mobile==players[index].number){
+                                players[index] = currentPlayer;
+                            }
+                        }
+                        currentPlayer = JSON.stringify(currentPlayer);
+                        players = JSON.stringify(players);
+                        localStorage.setItem("player",players);
+                        localStorage.setItem("currentPlayer",currentPlayer);
+                        window.location.href = "index.html";
+                    }
+                    else{
+                        alert("please enter same password");
+                    }
+                }
+                else{
+                    alert("Please enter minimum 6 digit password")
+                }
+            }
+            else if(name == "" || setpassword=="" || confPass==""){
+                alert("Enter all fields")
+            }
+        });
+        // exist user click event
+        var existuserPassword;
+        var existFormbtn = document.getElementById("existFormbtn");
+        existFormbtn.addEventListener("click",function(){
+            existuserPassword = document.getElementById("existuserPassword").value;
+                if(currentPlayer.password == existuserPassword){
+                    currentPlayer = JSON.stringify(currentPlayer);
+                    players = JSON.stringify(players);
+                    localStorage.setItem("player",players);
+                    localStorage.setItem("currentPlayer",currentPlayer);
+                    window.location.href = "index.html";
+                }
+                else{
+                    alert("Enter correct password!");
+                }
+        });
+        // password eye click function 
+
+        var newUserPassword1eye = document.getElementById("newUserPassword1eye");
+        var newUserPassword1eyeSVG = document.getElementsByClassName("newUserPassword1eyeSVG");
+        newUserPassword1eye.addEventListener("click",function(){
+            var setpasswordForEye = document.getElementById("newUserPassword1");
+            if (setpasswordForEye.type == "password") {
+                setpasswordForEye.type = "text";
+                newUserPassword1eyeSVG[0].style.stroke = "blue";
+                newUserPassword1eyeSVG[1].style.stroke = "blue";
+                newUserPassword1eyeSVG[2].style.stroke = "blue";
+            }
+            else {
+                newUserPassword1eyeSVG[0].style.stroke = "black";
+                newUserPassword1eyeSVG[1].style.stroke = "black";
+                newUserPassword1eyeSVG[2].style.stroke = "black";
+                setpasswordForEye.type = "password";
+            }
+        });
+
+        var newUserPassword2eye = document.getElementById("newUserPassword2eye");
+        var newUserPassword2eyeSVG = document.getElementsByClassName("newUserPassword2eyeSVG");
+        newUserPassword2eye.addEventListener("click",function(){
+            var confPassforeye = document.getElementById("newUserPassword2");
+            if (confPassforeye.type == "password") {
+                    confPassforeye.type = "text";
+                    newUserPassword2eyeSVG[0].style.stroke = "blue";
+                    newUserPassword2eyeSVG[1].style.stroke = "blue";
+                    newUserPassword2eyeSVG[2].style.stroke = "blue";
+                } 
+            else {
+                newUserPassword2eyeSVG[0].style.stroke = "black";
+                newUserPassword2eyeSVG[1].style.stroke = "black";
+                newUserPassword2eyeSVG[2].style.stroke = "black";
+                confPassforeye.type = "password";
+            }
+        });
+
+        var existuserPasswordeye = document.getElementById("existuserPasswordeye");
+        var existuserPasswordeyeSVG = document.getElementsByClassName("existuserPasswordeyeSVG");
+        existuserPasswordeye.addEventListener("click",function(){
+            var existuserPasswordForEye = document.getElementById("existuserPassword");
+            if (existuserPasswordForEye.type == "password") {
+                existuserPasswordForEye.type = "text";
+                    existuserPasswordeyeSVG[0].style.stroke = "blue";
+                    existuserPasswordeyeSVG[1].style.stroke = "blue";
+                    existuserPasswordeyeSVG[2].style.stroke = "blue";
+                } 
+            else{
+                existuserPasswordeyeSVG[0].style.stroke = "black";
+                existuserPasswordeyeSVG[1].style.stroke = "black";
+                existuserPasswordeyeSVG[2].style.stroke = "black";
+                existuserPasswordForEye.type = "password";
+            }
+        });
+    </script>
+</body>
+</html>
